@@ -13,9 +13,11 @@ export default function App() {
   },[])
 
   const getValue = async () => {
-    let FTXGetUSD = await Services.FTXService.FTXGetUSD('ETH')
-    let FTXGetAll = await Services.FTXService.FTXGetAll()
-    console.log(FTXGetAll);
+    // let FTXGetUSD = await Services.FTXService.FTXGetUSD('ETH')
+    // let FTXGetAll = await Services.FTXService.FTXGetAll()
+    // console.log(FTXGetAll);
+    console.log(await Services.BinanceService.BinanceGetAll());
+    console.log(await Services.BinanceService.BinanceGetUSDT('BTCUSDT'));
     // console.log(FTXGetUSD);
   }
 
