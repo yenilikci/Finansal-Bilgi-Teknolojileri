@@ -1,6 +1,6 @@
 import FTXService from "./FTXService.js"
-import BinanceService from "./BinanceService.js"
+import BinanceService from "./BinanceService"
+import BtcTurkService from "./BtcTurkService"
 
 
-
-export default {FTXService,BinanceService}
+export default {FTXService,BinanceService,BtcTurkService}
