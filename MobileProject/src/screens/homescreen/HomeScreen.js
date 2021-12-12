@@ -2,7 +2,6 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { Text,StyleSheet, TouchableOpacity, View} from 'react-native'
 import { Card,Title,Paragraph, Badge } from 'react-native-paper'
-import CustomAppbar from '../../components/appbar/CustomAppbar'; 
 import Firebase from '../../config/firebase';
 
 export default function HomeScreen({navigation}) {
@@ -18,7 +17,6 @@ export default function HomeScreen({navigation}) {
 
     return (
         <>
-           <CustomAppbar/>
            <View style={styles.container}>
            <Text>
                {auth.currentUser?.email}

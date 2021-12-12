@@ -1,29 +1,18 @@
-import React,{useEffect,useState} from 'react';
-import { StyleSheet, Text, View ,FlatList,Button} from 'react-native';
-import { Appbar, List,Card,Chip,Title,Paragraph,Provider } from 'react-native-paper';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, FlatList, Button } from 'react-native';
+import { Appbar, List, Card, Chip, Title, Paragraph, Provider } from 'react-native-paper';
 import Services from './src/Services/index';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { theme } from './src/core/theme'
-import {
-  StartScreen,
-  LoginScreen,
-  RegisterScreen,
-  ResetPasswordScreen,
-  Dashboard,
-  HomeScreen
-} from './src/screens'
-
-
-const Stack = createNativeStackNavigator()
-
+import StackNavigation from './src/navigation/stackNavigation';
 
 export default function App() {
 
-  const[ftxData,setFtxData] = useState([])
-  const[data,setData] = useState([])
+  const [ftxData, setFtxData] = useState([])
+  const [data, setData] = useState([])
 
-  useEffect(async ()=> { 
+  useEffect(async () => {
     // setFtxData(await Services.FTXService.FTXGetAll())
     // console.log(await Services.BitexenService.BitexenGetAll());
     // console.log(await Services.BitexenService.BitexenGetUSDT('BTCUSDT'));
@@ -39,7 +28,7 @@ export default function App() {
     console.log(await Services.GateIOService.GateioGetUSDT('BTC_USDT'));
 
     console.log('function component useeffect worked');
-  },[])
+  }, [])
 
   const getValue = async () => {
     let FTXGetUSD = await Services.FTXService.FTXGetUSD('ETH')
@@ -50,25 +39,8 @@ export default function App() {
 
   return (
     <Provider theme={theme}>
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="StartScreen"
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="StartScreen" component={StartScreen} />
-        <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-        <Stack.Screen name="Dashboard" component={Dashboard} />
-        <Stack.Screen
-          name="ResetPasswordScreen"
-          component={ResetPasswordScreen}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  </Provider>
+      <StackNavigation />
+    </Provider>
 
   );
 }
