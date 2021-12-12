@@ -12,6 +12,8 @@ import {createBottomTabNavigator, BottomTabBar} from '@react-navigation/bottom-t
 import { LinearGradient } from 'expo-linear-gradient';
 import { HomeScreen } from "../screens";
 import CustomAppBar from "../components/appbar/CustomAppbar"
+import ProfileScreen from "../screens/profilescreen/ProfileScreen";
+import BlogScreen from "../screens/blogscreen/BlogScreen";
 
 const Tab = createBottomTabNavigator()
 
@@ -42,6 +44,7 @@ export default function bottomNavigation () {
         <>
         <CustomAppBar/>
         <Tab.Navigator
+        initialRouteName="Home"
         screenOptions={{ headerShown: false }}
         tabBarOptions={{
             showLabel: false,
@@ -51,32 +54,33 @@ export default function bottomNavigation () {
                 left: 0,
                 right: 0,
                 elevation: 0,
-                backgroundColor: '#fff',
+                backgroundColor: '#000',
                 borderTopColor: 'transparent',
                 height: 100
             }
-        }}>
+        }}
+        >
             <Tab.Screen
             name="Blog"
-            component={HomeScreen}
+            component={BlogScreen}
             options={{
-                tabBarIcon: ((focused) => (
+                tabBarIcon: (({focused}) => (
                     <View
                     style={{
                         alignItems: 'center',
                         justifyContent: 'center'
                         }}>
                         <Image
-                        source={{uri: "https://img.icons8.com/ios/344/home.png"}}
+                        source={{uri: "https://img.icons8.com/color/2x/google-blog-search.png"}}
                         resizeMode="contain"
                         style={{
-                            width: 30,
-                            height: 30,
-                            tintColor: focused ? '#000' : '#a23d12'
+                            width: 20,
+                            height: 20,
+                            tintColor: focused ? '#000' : '#474747'
                         }}
                         />
-                        <Text style={{color: focused ? '#000' : '#a23d12'}}>
-                            HOME
+                        <Text style={{color: focused ? '#000' : '#474747'}}>
+                            Blog 
                         </Text>
                     </View>
                 ))
@@ -107,9 +111,9 @@ export default function bottomNavigation () {
 
             <Tab.Screen
             name="Profile"
-            component={HomeScreen}
+            component={ProfileScreen}
             options={{
-                tabBarIcon: ((focused) => (
+                tabBarIcon: (({focused}) => (
                     <View
                     style={{
                         alignItems: 'center',
@@ -121,11 +125,11 @@ export default function bottomNavigation () {
                         style={{
                             width: 20,
                             height: 20,
-                            tintColor: focused ? '#ddd' : '#000'
+                            tintColor: focused ? '#000' : '#474747'
                         }}
                         />
-                        <Text style={{color: focused ? '#000' : '#a23d12'}}>
-                            HOME
+                        <Text style={{color: focused ? '#000' : '#474747'}}>
+                            Profile
                         </Text>
                     </View>
                 ))
@@ -134,4 +138,4 @@ export default function bottomNavigation () {
         </Tab.Navigator>
         </>
     )
-} 
+}
