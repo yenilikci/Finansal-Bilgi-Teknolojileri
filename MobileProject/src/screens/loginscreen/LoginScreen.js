@@ -10,8 +10,11 @@ import BackButton from '../../components/backbutton/Backbutton'
 import { emailValidator } from '../../helpers/emailValidator'
 import { passwordValidator } from '../../helpers/passwordValidator'
 import LoginStyle from './LoginScreenStyle'
+import Firebase from '../../config/firebase'
+
 
 export default function LoginScreen({ navigation }) {
+  const auth = Firebase.auth()
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
 
@@ -23,9 +26,16 @@ export default function LoginScreen({ navigation }) {
       setPassword({ ...password, error: passwordError })
       return
     }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Dashboard' }],
+    return new Promise((resolve, reject)=>{
+      auth.signInWithEmailAndPassword(email.value, password.value)
+      .then(userCredentials => {
+          resolve(userCredentials)
+          if(!userCredentials.additionalUserInfo.isNewUser){
+            navigation.navigate('HomeScreen')
+            alert('Login successful , Welcome!')
+          }
+      })
+      .catch(error => alert(error))
     })
   }
 
@@ -62,7 +72,7 @@ export default function LoginScreen({ navigation }) {
           <Text style={LoginStyle.forgot}>Forgot your password?</Text>
         </TouchableOpacity>
       </View>
-      <Button mode="contained" onPress={onLoginPressed}>
+      <Button mode="contained" onPress={() => onLoginPressed()}>
         Login
       </Button>
       <View style={LoginStyle.row}>
@@ -74,3 +84,5 @@ export default function LoginScreen({ navigation }) {
     </Background>
   )
 }
+
+
