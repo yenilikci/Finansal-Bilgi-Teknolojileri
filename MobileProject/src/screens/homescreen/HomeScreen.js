@@ -1,14 +1,17 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { View, Text, ScrollView,StyleSheet,Button } from 'react-native'
-import { Appbar,Card,Title,Paragraph, Badge } from 'react-native-paper'
+import { Text,StyleSheet } from 'react-native'
+import { Card,Title,Paragraph, Badge } from 'react-native-paper'
+import CustomAppbar from '../../components/appbar/CustomAppbar'; 
 
 export default function HomeScreen() {
     return (
         <>
+           <CustomAppbar/>
            <Text>
                HomeScreen
            </Text>
+           <StatusBar style="light" />
         </>
     )
 }
