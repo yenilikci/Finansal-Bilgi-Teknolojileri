@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button as PaperButton } from 'react-native-paper'
-import { theme } from '../core/theme'
+import { theme } from '../../core/theme'
 import ButtonStyle from './ButtonStyle'
 
 export default function Button({ mode, style, ...props }) {

@@ -6,7 +6,7 @@ import TextinputStyle from './TextinputStyle'
 
 export default function TextInput({ errorText, description, ...props }) {
   return (
-    <View style={styles.container}>
+    <View style={TextinputStyle.container}>
       <Input
         style={TextinputStyle.input}
         selectionColor={theme.colors.primary}
