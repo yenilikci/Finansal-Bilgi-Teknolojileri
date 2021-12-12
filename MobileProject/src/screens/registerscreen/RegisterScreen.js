@@ -9,34 +9,36 @@ import TextInput from '../../components/textinput/Textinput'
 import BackButton from '../../components/backbutton/Backbutton'
 import { emailValidator } from '../../helpers/emailValidator'
 import { passwordValidator } from '../../helpers/passwordValidator'
-import { nameValidator } from '../../helpers/nameValidator'
 import RegisterScreenStyle from './RegisterScreenStyle'
-
-
+import Firebase from '../../config/firebase'
 export default function RegisterScreen({ navigation }) {
 
 
 
+  const auth = Firebase.auth()
+
   const [email, setEmail] = useState({ value: '', error: '' })
   const [password, setPassword] = useState({ value: '', error: '' })
 
-  const onSignUpPressed = () => {
-    const nameError = nameValidator(name.value)
+  const onRegisterPress =  () => {
     const emailError = emailValidator(email.value)
     const passwordError = passwordValidator(password.value)
-    if (emailError || passwordError || nameError) {
-      setName({ ...name, error: nameError })
+    if (emailError || passwordError) {
       setEmail({ ...email, error: emailError })
       setPassword({ ...password, error: passwordError })
       return
     }
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Dashboard' }],
+    return new Promise((resolve, reject)=>{
+      auth.createUserWithEmailAndPassword(email.value, password.value)
+      .then(userCredentials => {
+          resolve(userCredentials)
+          if(userCredentials.additionalUserInfo.isNewUser){
+            navigation.navigate('HomeScreen')
+            alert('Registration successful, Welcome!')
+          }
+      })
+      .catch(error => alert(error))
     })
-  }
-
-  const onRegisterPress = () => {
   }
 
   return (
@@ -67,7 +69,7 @@ export default function RegisterScreen({ navigation }) {
       />
       <Button
         mode="contained"
-        onPress={onRegisterPress}
+        onPress={() => onRegisterPress()}
         style={{ marginTop: 24 }}
       >
         Sign Up
