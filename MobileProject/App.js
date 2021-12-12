@@ -11,24 +11,10 @@ import {
   RegisterScreen,
   ResetPasswordScreen,
   Dashboard,
+  HomeScreen
 } from './src/screens'
 
 
-function HomeScreen({navigation}) {
-  return (
-    <View  style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{fontSize: 35}}>burası anasayfa knk</Text>
-    </View>
-  )
-}
-
-function DetailsScreen({navigation}) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>burası profil knk</Text>
-    </View>
-  );
-}
 const Stack = createNativeStackNavigator()
 
 
@@ -71,6 +57,7 @@ export default function App() {
           headerShown: false,
         }}
       >
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="StartScreen" component={StartScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
