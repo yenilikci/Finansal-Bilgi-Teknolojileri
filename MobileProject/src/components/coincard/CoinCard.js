@@ -13,11 +13,13 @@ export default function CoinCard({baseCurrency,quoteCurrency,price,stockMarketNa
         .then(res => {
             res.data.map(el => {
                 if(el.symbol === baseCurrency.toLowerCase()){
-                    el.image == ('' || null || undefined ) ? 'https://img.icons8.com/external-prettycons-lineal-color-prettycons/2x/external-coin-business-and-finance-prettycons-lineal-color-prettycons-3.png' : setimg(el.image)
+                    el.image == ('' || null || undefined ) ? 'https://img.icons8.com/external-prettycons-lineal-color-prettycons/2x/external-coin-business-and-finance-prettycons-lineal-color-prettycons-3.png' 
+                    : 
+                    setimg(el.image)
                 }
             })
         })
-    }, [])
+    }, [baseCurrency,quoteCurrency,stockMarketName])
 
     return (
         <>
