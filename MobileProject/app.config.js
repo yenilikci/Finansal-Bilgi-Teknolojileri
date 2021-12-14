@@ -22,6 +22,8 @@ export default{
       supportsTablet: true
     },
     android: {
+      package: "mobile.coinpricerank",
+      versionCode: 1,
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#FFFFFF"

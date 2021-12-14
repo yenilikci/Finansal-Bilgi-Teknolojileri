@@ -3,11 +3,13 @@ import { StatusBar } from 'expo-status-bar';
 import { Text,StyleSheet, TouchableOpacity, View} from 'react-native'
 import { Card,Title,Paragraph, Badge } from 'react-native-paper'
 import Firebase from '../../config/firebase';
+import CoinCard from '../../components/coincard/CoinCard';
 
 export default function HomeScreen({navigation}) {
     const auth = Firebase.auth()
     return (
         <>
+            <CoinCard/>
            <StatusBar style="light" />
         </>
     )
@@ -16,8 +18,6 @@ export default function HomeScreen({navigation}) {
 const styles = StyleSheet.create({  
     container:{  
         flex: 1,  
-        justifyContent: 'center',
-        alignItems: 'center'
     },   
     button: {
         backgroundColor: '#000',
