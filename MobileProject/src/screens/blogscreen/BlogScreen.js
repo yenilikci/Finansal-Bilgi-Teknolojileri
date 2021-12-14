@@ -31,12 +31,12 @@ export default function BlogScreen () {
     }, [])
 
     return (
-        <>
+        <View style={{backgroundColor: '#484848'}}>
             <View style={BlogScreenStyle.headerBox}>
             <IconButton
                 icon="newspaper-variant"
                 color="#fff"
-                size={35}
+                size={30}
                 onPress={() => console.log('Pressed')}
                 style={{marginRight:0}}
             />
@@ -48,6 +48,6 @@ export default function BlogScreen () {
                 <BlogCard blog={blog}/>
               
             ))}
-        </>
+        </View>
     )
 }

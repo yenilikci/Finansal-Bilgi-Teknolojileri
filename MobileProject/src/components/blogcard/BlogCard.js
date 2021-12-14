@@ -1,10 +1,14 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import { Card , Title, Paragraph, Avatar, IconButton} from 'react-native-paper'
+import { Card , Title, Paragraph, Avatar, IconButton, TouchableRipple} from 'react-native-paper'
 import BlogCardStyle from './BlogCardStyle'
 
 const BlogCard = ({blog}) => {
     return (
+        <TouchableRipple
+        onPress={() => console.log('Pressed')}
+        rippleColor="rgba(0, 0, 0)"
+       >
         <Card style={BlogCardStyle.card}>
             <Card.Content>
                 <Text style={BlogCardStyle.title}>{blog.title}</Text>
@@ -16,6 +20,7 @@ const BlogCard = ({blog}) => {
                 </Text>
             </Card.Content>
         </Card>
+        </TouchableRipple>
     )
 }
 

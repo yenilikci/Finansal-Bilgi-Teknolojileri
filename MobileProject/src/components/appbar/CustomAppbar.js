@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import { Appbar, IconButton} from 'react-native-paper'
+import { Appbar, IconButton, Avatar} from 'react-native-paper'
 import CustomAppbarStyle from './CustomAppbarStyle'
 import Firebase from '../../config/firebase';
 import { useNavigation } from '@react-navigation/native';
@@ -27,9 +27,12 @@ export default function CustomAppbar() {
                 size={30}
                 onPress={() => console.log('Pressed')}
             />
-            <Text style={CustomAppbarStyle.text}>
-                Coin Price Rank
-            </Text>
+            <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+            <Avatar.Image size={24} source={require('../../assets/coinflip.gif')} />
+                <Text style={CustomAppbarStyle.text}>
+                        Coin Price Rank
+                </Text>
+            </View>
             <IconButton
                 icon="account-arrow-right-outline"
                 color="#ddd"
@@ -39,9 +42,10 @@ export default function CustomAppbar() {
             </>
             :
             <>
-             <Text style={CustomAppbarStyle.text}>
-                Coin Price Rank
-             </Text>
+                <Avatar.Image size={24} source={require('../../assets/coinflip.gif')} />
+                <Text style={CustomAppbarStyle.text}>
+                        Coin Price Rank
+                </Text>
             </>}
         </Appbar.Header>
     )

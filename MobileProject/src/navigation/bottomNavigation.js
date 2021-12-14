@@ -27,11 +27,11 @@ const TabBarCustomButton = ({children, onPress}) => {
         }}
         onPress={onPress}>
             <LinearGradient
-            colors={['#333','#000']}
+            colors={['#333','#000','#474747']}
             style={{
                 width: 70,
                 height: 70,
-                borderRadius: 35
+                borderRadius: 35,
             }}>
                 {children}
             </LinearGradient>
@@ -45,19 +45,21 @@ export default function bottomNavigation () {
         <CustomAppBar/>
         <Tab.Navigator
         initialRouteName="Home"
-        screenOptions={{ headerShown: false }}
+        screenOptions={{ headerShown: false}}
         tabBarOptions={{
+            indicatorStyle: {
+                width: 0, height: 0, elevation: 0,      
+            },
+            inactiveBackgroundColor: '#000',
+            activeBackgroundColor: '#000',
             showLabel: false,
             style: {
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                elevation: 0,
                 backgroundColor: '#000',
-                borderTopColor: 'transparent',
-                height: 100
-            }
+                elevation: 0,   
+                shadowOffset: {
+                 width: 0, height: 0 
+                },
+            },
         }}
         >
             <Tab.Screen
@@ -76,10 +78,10 @@ export default function bottomNavigation () {
                         style={{
                             width: 20,
                             height: 20,
-                            tintColor: focused ? '#000' : '#474747'
+                            tintColor: focused ? '#F56FAD' : '#fff'
                         }}
                         />
-                        <Text style={{color: focused ? '#000' : '#474747'}}>
+                        <Text style={{color: focused ? '#F56FAD' : '#fff'}}>
                             News 
                         </Text>
                     </View>
@@ -102,9 +104,12 @@ export default function bottomNavigation () {
                     />
                 ),
                 tabBarButton: (props) => (
-                    <TabBarCustomButton
-                        {...props}
-                    />
+                    <LinearGradient colors={['#D47AE8', '#4C0070', '#F56FAD']}>
+                        <TabBarCustomButton
+                          {...props}
+                        />
+                    </LinearGradient>
+                   
                 )
             }}
             />
@@ -125,10 +130,10 @@ export default function bottomNavigation () {
                         style={{
                             width: 20,
                             height: 20,
-                            tintColor: focused ? '#000' : '#474747'
+                            tintColor: focused ? '#F56FAD' : '#fff',
                         }}
                         />
-                        <Text style={{color: focused ? '#000' : '#474747'}}>
+                        <Text style={{color: focused ? '#F56FAD' : '#fff'}}>
                             Profile
                         </Text>
                     </View>

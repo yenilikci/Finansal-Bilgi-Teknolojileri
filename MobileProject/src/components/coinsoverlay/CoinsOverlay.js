@@ -77,6 +77,11 @@ const CoinsOverlay = () => {
                 placeholder="Search"
                 onChangeText={onChangeSearch}
                 value={searchQuery}
+                theme={{
+                    colors: {
+                        placeholder: '#fff'
+                    }
+                }}
             />
             {allData.length > 0 ? <FlatList
                 data={allData}
@@ -95,4 +100,3 @@ const CoinsOverlay = () => {
 }
 
 export default CoinsOverlay
-

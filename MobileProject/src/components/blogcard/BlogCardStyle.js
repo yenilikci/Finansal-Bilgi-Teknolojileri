@@ -4,7 +4,7 @@ import { borderBottomColor } from "react-native/Libraries/Components/View/ReactN
 export default StyleSheet.create({
     card: {
         marginTop: 15,
-        backgroundColor: '#ddd',
+        backgroundColor: '#707070',
         flexDirection: 'row',
         display: 'flex',
         borderRadius: 15,
@@ -17,7 +17,7 @@ export default StyleSheet.create({
         },
         shadowOpacity: 0.9,
         shadowRadius: 3.84,
-        elevation: 10,
+        elevation: 20,
     },
     text: {
         color: '#000',
@@ -30,13 +30,16 @@ export default StyleSheet.create({
         textAlign: 'center',
         borderRadius: 15,
         padding: 10,
-        fontSize: 20
+        fontSize: 20,
+        borderColor: '#ddd',
+        borderWidth: 2
     },
     newsTitle: {
         marginTop: 5,
         alignSelf:'flex-end',
         fontSize: 14,
         borderBottomColor: '#000',
-        borderBottomWidth: 2
+        borderBottomWidth: 2,
+        fontWeight: 'bold'
     }
 })

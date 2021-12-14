@@ -46,7 +46,7 @@ export default function CoinCard({baseCurrency,quoteCurrency,price,stockMarketNa
                         left={(props) =>  <Avatar.Image size={50} source={{uri : (img)}} style={{backgroundColor:'#ddd'}}/>}
                         leftStyle={{marginRight: 30}}
                         right={(props) => <View style={{backgroundColor: '#ddd', borderRadius: 1000}}>
-                            <IconButton {...props} size={25} color='#4b0082' icon="eye-check" onPress={() => logInfo(baseCurrency,quoteCurrency,stockMarketName,price)} />
+                        <IconButton {...props} size={25} color='#343A40' icon="eye-check" onPress={() => logInfo(baseCurrency,quoteCurrency,stockMarketName,price)} />
                         </View>}
                         />
                 </Card.Content>
