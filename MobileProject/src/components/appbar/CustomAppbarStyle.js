@@ -5,6 +5,12 @@ export default StyleSheet.create({
         backgroundColor:'#000',
         alignItems: 'center',
         display: 'flex',
+        justifyContent: 'space-between',
+    },
+    headerNoAuth: {
+        backgroundColor:'#000',
+        alignItems: 'center',
+        display: 'flex',
         justifyContent: 'center',
     },
     text: {

@@ -6,27 +6,8 @@ import Firebase from '../../config/firebase';
 
 export default function HomeScreen({navigation}) {
     const auth = Firebase.auth()
-
-    const logout = () => {
-        auth.signOut()
-        .then(() => {
-            navigation.replace("LoginScreen")
-        })
-        .catch(error  => alert(error.message))
-    }
-
     return (
         <>
-           <View style={styles.container}>
-           <Text>
-               {auth.currentUser?.email}
-           </Text>
-           <TouchableOpacity
-           onPress={logout}
-           style={styles.button}>
-            <Text style={styles.buttonText}>Logout</Text>
-           </TouchableOpacity>
-           </View>
            <StatusBar style="light" />
         </>
     )
