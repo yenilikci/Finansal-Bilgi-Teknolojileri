@@ -3,7 +3,8 @@ import { borderBottomColor } from "react-native/Libraries/Components/View/ReactN
 
 export default StyleSheet.create({
     card: {
-        marginTop: 15,
+        marginTop: 10,
+        marginBottom: 10,
         backgroundColor: '#707070',
         flexDirection: 'row',
         display: 'flex',

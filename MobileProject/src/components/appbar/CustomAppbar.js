@@ -10,6 +10,7 @@ export default function CustomAppbar() {
     const logout = () => {
         auth.signOut()
         .then(() => {
+            alert('Logout Successful!')
             navigation.replace("LoginScreen")
         })
         .catch(error  => alert(error.message))

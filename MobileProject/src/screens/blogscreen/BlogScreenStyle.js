@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     headerBox:{
         marginTop: 10,
+        marginBottom: 10,
         marginLeft: 5,
         marginRight: 5,
         display: 'flex',

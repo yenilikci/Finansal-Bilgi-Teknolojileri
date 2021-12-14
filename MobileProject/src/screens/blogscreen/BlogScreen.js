@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
 import { IconButton } from 'react-native-paper'
 import BlogCard from '../../components/blogcard/BlogCard'
-import CoinCardStyle from '../../components/coincard/CoinCardStyle'
 import BlogScreenStyle from './BlogScreenStyle'
 import Firebase from '../../config/firebase'
 
@@ -30,7 +29,12 @@ export default function BlogScreen () {
         await getAllData()
     }, [])
 
+    const renderItem = ({item}) => (
+        <BlogCard blog={item}/>
+    )
+
     return (
+        <>
         <View style={{backgroundColor: '#484848'}}>
             <View style={BlogScreenStyle.headerBox}>
             <IconButton
@@ -44,10 +48,13 @@ export default function BlogScreen () {
                     News
                 </Text>
             </View>
-            {blogs.map(blog => (
-                <BlogCard blog={blog}/>
-              
-            ))}
         </View>
+         <FlatList
+         style={{backgroundColor: '#484848'}}
+         data={blogs}
+         renderItem={renderItem}
+         keyExtractor={(item,index) => index}
+     />
+     </>
     )
 }
