@@ -13,15 +13,23 @@ const CoinsOverlay = () => {
     const[kuCoinData,setKuCoinData] = useState([])
     const[allData,setAllData] = useState([])
 
-    useEffect(async ()=> {    
+
+    const getAllEffect = async () => {
         setBinanceData(await Services.BinanceService.BinanceGetAll())
         setFtxData(await Services.FTXService.FTXGetAll())
         setKuCoinData(await Services.KucoinService.KucoinGetAll())
         setBitexenData(await Services.BitexenService.BitexenGetAll())
         setBtcTurkData(await Services.BtcTurkService.BtcTurkGetAll())
         setGateIoData(await Services.GateIOService.GateioGetAll())
-        setAllData(ftxData)
+    }
+
+    useEffect(async ()=> {    
+        getAllEffect()
     },[])
+
+    useEffect(() => {
+        setAllData([...binanceData,...kuCoinData,...gateIoData,...ftxData,...btcTurkData,...bitexenData])
+    },[ftxData,binanceData,bitexenData,btcTurkData,gateIoData,kuCoinData])
 
     const renderItem = ({item}) => (
         <CoinCard baseCurrency={item.baseCurrency} quoteCurrency={item.quoteCurrency} price={item.price} stockMarketName={item.stockMarketName}/>
@@ -30,9 +38,9 @@ const CoinsOverlay = () => {
     return (
         <>
             <FlatList
-                data={[...binanceData,...ftxData,...kuCoinData,...bitexenData,...btcTurkData,...gateIoData]}
+                data={allData}
                 renderItem={renderItem}
-                keyExtractor={(item) => item.price}
+                keyExtractor={(item,index) => index}
             /> 
            
         </>
@@ -40,3 +48,4 @@ const CoinsOverlay = () => {
 }
 
 export default CoinsOverlay
+

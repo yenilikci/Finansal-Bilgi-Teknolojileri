@@ -1,12 +1,14 @@
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-    card: {
+    card: {
         backgroundColor: '#333333',
         flexDirection: 'row',
         display: 'flex',
         marginTop: 10,
         borderRadius: 15,
+        marginLeft: 7,
+        marginRight: 7,
     },
     title: {
         color: '#fff'

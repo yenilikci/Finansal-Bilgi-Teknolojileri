@@ -6,7 +6,7 @@ import axios from 'axios'
 
 export default function CoinCard({baseCurrency,quoteCurrency,price,stockMarketName}) {
 
-    const [img, setimg] = useState('')
+    const [img, setimg] = useState('https://img.icons8.com/external-prettycons-lineal-color-prettycons/2x/external-coin-business-and-finance-prettycons-lineal-color-prettycons-3.png')
 
     useEffect(async()=> {
         await axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc')
