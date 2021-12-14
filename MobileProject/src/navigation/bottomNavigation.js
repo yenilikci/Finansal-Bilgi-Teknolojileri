@@ -125,7 +125,7 @@ export default function bottomNavigation () {
                         justifyContent: 'center'
                         }}>
                         <Image
-                        source={{uri: "https://img.icons8.com/doodle/2x/user-male-skin-type-5.png"}}
+                        source={{uri: "https://img.icons8.com/material-sharp/2x/visible.png"}}
                         resizeMode="contain"
                         style={{
                             width: 20,
@@ -134,7 +134,7 @@ export default function bottomNavigation () {
                         }}
                         />
                         <Text style={{color: focused ? '#F56FAD' : '#fff'}}>
-                            Profile
+                            Watch List
                         </Text>
                     </View>
                 ))
