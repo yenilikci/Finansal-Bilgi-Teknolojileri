@@ -28,8 +28,9 @@ const FTXGetAll = async () => {
         let ftxArray= [] //temp dizi
         let list = await axios.get('https://ftx.com/api/markets')
         list.data.result.map(coin => {
-            if((baseCurrenyList.some(arrayItemSymbol => coin.baseCurrency === arrayItemSymbol)) && coin.quoteCurrency == 'USD'){
+            if((baseCurrenyList.some(arrayItemSymbol => coin.baseCurrency === arrayItemSymbol)) && coin.quoteCurrency == 'USDT'){
                 ftxArray.push({
+                   "stockMarketName": "FTX",
                    "price":coin.price,
                    "baseCurrency": coin.baseCurrency,
                    "quoteCurrency": coin.quoteCurrency

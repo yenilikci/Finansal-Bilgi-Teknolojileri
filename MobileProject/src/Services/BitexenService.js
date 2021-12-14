@@ -29,31 +29,37 @@ const BitexenGetAll = async () => {
         let list = await axios.get('https://www.bitexen.com/api/v1/ticker/')
             bitexenArray.push(
                 {
+                    "stockMarketName": "Bitexen",
                     'price': list.data.data.ticker.BTCUSDT.last_price,
                     'baseCurrency': list.data.data.ticker.BTCUSDT.market.base_currency_code,
                     'quoteCurrency': list.data.data.ticker.BTCUSDT.market.counter_currency_code,
                 },
                 {
+                    "stockMarketName": "Bitexen",
                     'price': list.data.data.ticker.ETHUSDT.last_price,
                     'baseCurrency': list.data.data.ticker.ETHUSDT.market.base_currency_code,
                     'quoteCurrency': list.data.data.ticker.ETHUSDT.market.counter_currency_code,
                 },
                 {
+                    "stockMarketName": "Bitexen",
                     'price': list.data.data.ticker.XRPUSDT.last_price,
                     'baseCurrency': list.data.data.ticker.XRPUSDT.market.base_currency_code,
                     'quoteCurrency': list.data.data.ticker.XRPUSDT.market.counter_currency_code,
                 },
                 {
+                    "stockMarketName": "Bitexen",
                     'price': list.data.data.ticker.ADAUSDT.last_price,
                     'baseCurrency': list.data.data.ticker.ADAUSDT.market.base_currency_code,
                     'quoteCurrency': list.data.data.ticker.ADAUSDT.market.counter_currency_code,
                 },
                 {
+                    "stockMarketName": "Bitexen",
                     'price': list.data.data.ticker.XLMUSDT.last_price,
                     'baseCurrency': list.data.data.ticker.XLMUSDT.market.base_currency_code,
                     'quoteCurrency': list.data.data.ticker.XLMUSDT.market.counter_currency_code,
                 },
                 {
+                    "stockMarketName": "Bitexen",
                     'price': list.data.data.ticker.LTCUSDT.last_price,
                     'baseCurrency': list.data.data.ticker.LTCUSDT.market.base_currency_code,
                     'quoteCurrency': list.data.data.ticker.LTCUSDT.market.counter_currency_code,

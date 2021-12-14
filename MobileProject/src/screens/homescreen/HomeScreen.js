@@ -3,13 +3,12 @@ import { StatusBar } from 'expo-status-bar';
 import { Text,StyleSheet, TouchableOpacity, View} from 'react-native'
 import { Card,Title,Paragraph, Badge } from 'react-native-paper'
 import Firebase from '../../config/firebase';
-import CoinCard from '../../components/coincard/CoinCard';
-
+import CoinsOverlay from '../../components/coinsoverlay/CoinsOverlay';
 export default function HomeScreen({navigation}) {
     const auth = Firebase.auth()
     return (
         <>
-            <CoinCard/>
+           <CoinsOverlay/>
            <StatusBar style="light" />
         </>
     )

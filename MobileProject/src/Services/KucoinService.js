@@ -30,6 +30,7 @@ const KucoinGetAll = async () => {
         list.data.data.ticker.map(coin => {
             if((baseCurrenyList.some(arrayItemSymbol => coin.symbol.split('-')[0] === arrayItemSymbol)) && coin.symbol.split('-')[1] === 'USDT'){
                 kucoinArray.push({
+                   "stockMarketName": "KuCoin",
                    "price":coin.last,
                    "baseCurrency": coin.symbol.split('-')[0],
                    "quoteCurrency": coin.symbol.split('-')[1]

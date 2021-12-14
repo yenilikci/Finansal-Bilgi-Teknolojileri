@@ -30,6 +30,7 @@ const BtcTurkGetAll = async () => {
         list.data.data.map(coin => {
             if((baseCurrenyList.some(arrayItemSymbol => coin.numeratorSymbol === arrayItemSymbol)) && coin.denominatorSymbol == 'USDT'){
                 btcTurkArray.push({
+                   "stockMarketName": "BTCTurk",
                    "price":coin.last,
                    "baseCurrency": coin.numeratorSymbol,
                    "quoteCurrency": coin.denominatorSymbol

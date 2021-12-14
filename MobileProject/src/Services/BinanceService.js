@@ -31,6 +31,7 @@ const BinanceGetAll = async () => {
             if(coin.symbol.substr(coin.symbol.length-4, coin.symbol.length) === 'USDT'){
                 if(baseCurrenyList.some(el => el === coin.symbol.substr(0, coin.symbol.length-4))){
                     binanceArray.push({
+                        "stockMarketName": "Binance",
                         'price': coin.price,
                         "baseCurrency": coin.symbol.substr(0, coin.symbol.length-4),
                         "quoteCurrency": coin.symbol.substr(coin.symbol.length-4, coin.symbol.length)

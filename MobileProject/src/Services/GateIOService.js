@@ -30,6 +30,7 @@ const GateioGetAll = async () => {
         list.data.map(coin => {
             if(baseCurrenyList.some(el => coin.name.split('_')[0] === el) && coin.name.split('_')[1] === 'USDT'){
                 gateioArray.push({
+                        "stockMarketName": "GateIO",
                         'price': coin.last_price,
                         "baseCurrency": coin.name.split('_')[0],
                         "quoteCurrency": coin.name.split('_')[1]
