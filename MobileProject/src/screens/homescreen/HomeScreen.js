@@ -7,10 +7,10 @@ import CoinsOverlay from '../../components/coinsoverlay/CoinsOverlay';
 export default function HomeScreen({navigation}) {
     const auth = Firebase.auth()
     return (
-        <>
+        <View style={{backgroundColor: '#484848'}}>
            <CoinsOverlay/>
            <StatusBar style="light" />
-        </>
+        </View>
     )
 }
 

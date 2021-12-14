@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Text, View, FlatList } from 'react-native'
-import {Searchbar} from 'react-native-paper'
+import {Searchbar, Avatar} from 'react-native-paper'
 import CoinCard from '../coincard/CoinCard'
 import Services from '../../Services/index'
 
@@ -67,20 +67,30 @@ const CoinsOverlay = () => {
     // }, [searchQuery])
 
     return (
-        <>
+        <View style={{backgroundColor: '#484848'}}>
             <Searchbar
-                style={{marginLeft:7, marginRight:7, marginTop: 10}}
+                style={{marginLeft:7, marginRight:7, marginTop: 10, backgroundColor: '#121212'}}
+                iconColor='#fff'
+                inputStyle={{
+                    color: '#ddd'
+                }}
                 placeholder="Search"
                 onChangeText={onChangeSearch}
                 value={searchQuery}
             />
-            <FlatList
+            {allData.length > 0 ? <FlatList
                 data={allData}
                 renderItem={renderItem}
                 keyExtractor={(item,index) => index}
-            /> 
-           
-        </>
+            /> : 
+            <View style={{minHeight:600, justifyContent: 'center', alignItems: 'center'}}>
+                <Avatar.Image size={120} source={require('../../assets/not-result.png')} />
+                <Text style={{color: '#000', fontSize: 25, marginBottom: 70}}>
+                    No Result!
+                </Text>
+            </View>
+            }
+        </View>
     )
 }
 

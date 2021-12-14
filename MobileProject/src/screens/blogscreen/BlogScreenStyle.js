@@ -15,6 +15,6 @@ export default StyleSheet.create({
     headerTitle: {
         textAlign: 'center',
         fontSize: 25,
-        color: '#777'
+        color: '#fff'
     }
 })

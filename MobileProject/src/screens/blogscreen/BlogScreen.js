@@ -35,7 +35,7 @@ export default function BlogScreen () {
             <View style={BlogScreenStyle.headerBox}>
             <IconButton
                 icon="newspaper-variant"
-                color="#777"
+                color="#fff"
                 size={35}
                 onPress={() => console.log('Pressed')}
                 style={{marginRight:0}}
