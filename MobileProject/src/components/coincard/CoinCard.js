@@ -3,8 +3,12 @@ import { Text, View } from 'react-native'
 import { Card , Title, Paragraph, Avatar, IconButton,TouchableRipple} from 'react-native-paper'
 import CoinCardStyle from './CoinCardStyle'
 import axios from 'axios'
+import Firebase from '../../config/firebase'
 
 export default function CoinCard({baseCurrency,quoteCurrency,price,stockMarketName}) {
+
+    const auth = Firebase.auth()
+    const firestore = Firebase.firestore()
 
     const [img, setimg] = useState('https://img.icons8.com/external-prettycons-lineal-color-prettycons/2x/external-coin-business-and-finance-prettycons-lineal-color-prettycons-3.png')
 
@@ -21,11 +25,26 @@ export default function CoinCard({baseCurrency,quoteCurrency,price,stockMarketNa
         })
     }, [baseCurrency,quoteCurrency,stockMarketName])
 
-    const logInfo = (baseCurrency,quoteCurrency,stockMarketName,price) => {
-        alert(baseCurrency)
-        alert(quoteCurrency)
-        alert(stockMarketName)
-        alert(price)
+    const saveWatchItem = (baseCurrency,quoteCurrency,stockMarketName,price) => {
+            const user = Firebase.auth().currentUser;
+            if(user){
+                firestore.collection('WatchList')
+                .add({
+                    "baseCurrency": baseCurrency,
+                    "date": new Date(),
+                    "price": price,
+                    "quoteCurrency": quoteCurrency,
+                    "stockMarketName": stockMarketName,
+                    "userId": user.uid
+                }).then(docRef => {
+                    if(docRef){
+                        alert('Watch List Item Added!')
+                    }
+                })
+
+            }else {
+                alert('Please Login')
+            }
     }
 
     return (
@@ -46,7 +65,7 @@ export default function CoinCard({baseCurrency,quoteCurrency,price,stockMarketNa
                         left={(props) =>  <Avatar.Image size={50} source={{uri : (img)}} style={{backgroundColor:'#ddd'}}/>}
                         leftStyle={{marginRight: 30}}
                         right={(props) => <View style={{backgroundColor: '#ddd', borderRadius: 1000}}>
-                        <IconButton {...props} size={25} color='#343A40' icon="eye-check" onPress={() => logInfo(baseCurrency,quoteCurrency,stockMarketName,price)} />
+                        <IconButton {...props} size={25} color='#343A40' icon="eye-check" onPress={() => saveWatchItem(baseCurrency,quoteCurrency,stockMarketName,price)} />
                         </View>}
                         />
                 </Card.Content>
