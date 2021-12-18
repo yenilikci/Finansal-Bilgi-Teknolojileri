@@ -47,19 +47,9 @@ export default function bottomNavigation () {
         initialRouteName="Home"
         screenOptions={{ headerShown: false}}
         tabBarOptions={{
-            indicatorStyle: {
-                width: 0, height: 0, elevation: 0,      
-            },
             inactiveBackgroundColor: '#000',
             activeBackgroundColor: '#000',
             showLabel: false,
-            style: {
-                backgroundColor: '#000',
-                elevation: 0,   
-                shadowOffset: {
-                 width: 0, height: 0 
-                },
-            },
         }}
         >
             <Tab.Screen

@@ -2,8 +2,8 @@ import 'dotenv/config';
 
 export default{
   expo: {
-    name: "MobileProject",
-    slug: "MobileProject",
+    name: "Coin Price Rank",
+    slug: "coin-price-rank",
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/icon.png",
