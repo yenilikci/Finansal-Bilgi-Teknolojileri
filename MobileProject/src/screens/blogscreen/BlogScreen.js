@@ -35,7 +35,7 @@ export default function BlogScreen () {
 
     return (
         <>
-        <View style={{backgroundColor: '#484848'}}>
+        <View style={{backgroundColor: '#121212'}}>
             <View style={BlogScreenStyle.headerBox}>
             <IconButton
                 icon="newspaper-variant"
@@ -50,7 +50,7 @@ export default function BlogScreen () {
             </View>
         </View>
          <FlatList
-         style={{backgroundColor: '#484848'}}
+         style={{backgroundColor: '#121212'}}
          data={blogs}
          renderItem={renderItem}
          keyExtractor={(item,index) => index}

@@ -21,6 +21,9 @@ export default function ProfileScreen() {
     const navigateLogin = () => {
         navigation.navigate('LoginScreen')
     }
+    const navigateHome = () => {
+        navigation.replace('HomeScreen')
+    }
 
     useEffect(async () => {
         await Firebase.auth().onAuthStateChanged((user)=> {
@@ -134,12 +137,32 @@ export default function ProfileScreen() {
                         }}>
                             Refresh
                         </Button>
-                          <FlatList
-                                style={{backgroundColor: '#484848'}}
-                                data={watchList}
-                                renderItem={renderItem}
-                                keyExtractor={(item,index) => index}
-                           />
+                        {watchList.length > 0 ? 
+                            <FlatList
+                                    style={{backgroundColor: '#484848'}}
+                                    data={watchList}
+                                    renderItem={renderItem}
+                                    keyExtractor={(item,index) => index}
+                            />
+                            :
+                            <View
+                            style={{
+                                flex: 1,
+                                backgroundColor: '#121212',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}>
+                                <Text
+                                style={ProfileScreenStyle.notFound}>
+                                    WATCH ITEM NOT FOUND!
+                                </Text>
+                                <Button
+                                style={ProfileScreenStyle.replaceHomeScreen}
+                                icon="home" mode="contained" onPress={() => navigateHome()}>
+                                    HOME
+                                </Button>
+                            </View>
+                        }
                          
                     </>
                     :
@@ -157,4 +180,3 @@ export default function ProfileScreen() {
         </>
     )
 }
-
