@@ -10,30 +10,6 @@ export default function App() {
   const[ftxData,setFtxData] = useState([])
   const[data,setData] = useState([])
 
-  useEffect(async ()=> { 
-    // setFtxData(await Services.FTXService.FTXGetAll())
-    // console.log(await Services.BitexenService.BitexenGetAll());
-    // console.log(await Services.BitexenService.BitexenGetUSDT('BTCUSDT'));
-    // console.log(await Services.BinanceService.BinanceGetAll());
-    // console.log(await Services.BinanceService.BinanceGetUSDT('BTCUSDT'));
-    // console.log(await Services.BtcTurkService.BtcTurkGetAll());
-    // console.log(await Services.BtcTurkService.BtcTurkGetUSDT('BTC_USDT'));
-    // console.log(await Services.KucoinService.KucoinGetAll());
-    // console.log(await Services.KucoinService.KucoinGetUSDT('BTC-USDT'));
-    // console.log(await Services.GateIOService.GateioGetAll());
-    setData(await Services.BinanceService.BinanceGetAll())
-
-    console.log(await Services.GateIOService.GateioGetUSDT('BTC_USDT'));
-
-    console.log('function component useeffect worked');
-  },[])
-
-  const getValue = async () => {
-    let FTXGetUSD = await Services.FTXService.FTXGetUSD('ETH')
-    // let FTXGetAll = await Services.FTXService.FTXGetAll()
-    // console.log(FTXGetAll);
-    // console.log(FTXGetUSD);
-  }
 
   return (
     <Provider theme={theme}>
@@ -48,4 +24,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#3F8EFC'
   },
 });
-

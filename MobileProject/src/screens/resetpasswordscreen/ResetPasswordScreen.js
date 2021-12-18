@@ -7,8 +7,12 @@ import TextInput from '../../components/textinput/Textinput'
 import Button from '../../components/button/Button'
 import { emailValidator } from '../../helpers/emailValidator'
 import ResetPasswordScreenStyle from './ResetPasswordScreenStyle'
+import Firebase from '../../config/firebase'
 
 export default function ResetPasswordScreen({ navigation }) {
+  
+  const firestore = Firebase.auth()
+
   const [email, setEmail] = useState({ value: '', error: '' })
 
   const sendResetPasswordEmail = () => {
@@ -17,7 +21,14 @@ export default function ResetPasswordScreen({ navigation }) {
       setEmail({ ...email, error: emailError })
       return
     }
-    navigation.navigate('LoginScreen')
+
+    firestore.sendPasswordResetEmail(email.value)
+    .then((user) => {
+      alert('Please check your email...')
+      navigation.navigate('LoginScreen')
+    }).catch(() => {
+      alert('We not found your email...')
+    })
   }
 
   return (
