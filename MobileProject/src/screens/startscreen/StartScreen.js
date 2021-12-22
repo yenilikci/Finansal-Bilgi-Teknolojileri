@@ -25,7 +25,7 @@ export default function StartScreen({ navigation }) {
       <Logo />
       <Header>Coin Price Rank</Header>
       <Paragraph>
-        The easiest way to start with your amazing application.
+        ADD YOUR FAVORITE CRYPTOCURRENCIES TO WATCHLIST AND COMPARE!
       </Paragraph>
       <Button
         mode="contained"

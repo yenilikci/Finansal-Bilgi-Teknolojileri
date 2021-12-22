@@ -85,7 +85,7 @@ export default function bottomNavigation () {
             options={{
                 tabBarIcon: ({focused}) => (
                     <Image
-                        source={{uri: "https://img.icons8.com/nolan/2x/home-page.png"}}
+                        source={require('../assets/coinflip.gif')}
                         resizeMode="contain"
                         style={{
                             width: 40,
@@ -94,7 +94,7 @@ export default function bottomNavigation () {
                     />
                 ),
                 tabBarButton: (props) => (
-                    <LinearGradient colors={['#D47AE8', '#4C0070', '#F56FAD']}>
+                    <LinearGradient colors={['#000', '#000', '#000']}>
                         <TabBarCustomButton
                           {...props}
                         />

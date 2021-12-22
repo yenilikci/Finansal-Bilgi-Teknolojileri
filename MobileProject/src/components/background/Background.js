@@ -1,5 +1,5 @@
 import React from 'react'
-import { ImageBackground, KeyboardAvoidingView } from 'react-native'
+import { ImageBackground } from 'react-native'
 import BackgroundStyle from './BackgroundStyle'
 
 export default function Background({ children }) {
@@ -7,11 +7,9 @@ export default function Background({ children }) {
     <ImageBackground
       source={require('../../assets/background_dot.png')}
       resizeMode="repeat"
-      style={BackgroundStyle.background}
+      style={BackgroundStyle.background, BackgroundStyle.container}
     >
-      <KeyboardAvoidingView style={BackgroundStyle.container} behavior="padding">
-        {children}
-      </KeyboardAvoidingView>
+        {children} 
     </ImageBackground>
   )
 }

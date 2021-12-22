@@ -23,13 +23,12 @@ export default function CustomAppbar() {
              ?
              <>
              <IconButton
-                icon="menu"
-                color="#ddd"
-                size={30}
+                icon=""
+                color="#000"
+                size={32}
                 onPress={() => console.log('Pressed')}
             />
             <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-            <Avatar.Image size={24} source={require('../../assets/coinflip.gif')} />
                 <Text style={CustomAppbarStyle.text}>
                         Coin Price Rank
                 </Text>
@@ -37,13 +36,12 @@ export default function CustomAppbar() {
             <IconButton
                 icon="account-arrow-right-outline"
                 color="#ddd"
-                size={30}
+                size={32}
                 onPress={() => logout()}
             />
             </>
             :
             <>
-                <Avatar.Image size={24} source={require('../../assets/coinflip.gif')} />
                 <Text style={CustomAppbarStyle.text}>
                         Coin Price Rank
                 </Text>

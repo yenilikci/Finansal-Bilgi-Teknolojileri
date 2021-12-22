@@ -10,6 +10,7 @@ export default StyleSheet.create({
       fontWeight: 'bold',
       fontSize: 15,
       lineHeight: 26,
+      textTransform: 'capitalize'
     },
   })
   

@@ -53,19 +53,6 @@ const CoinsOverlay = () => {
         setAllData(all)
     }
 
-    // useEffect(() => {
-    //     const all = []
-    //     allData.map(item => {
-    //         if(item.stockMarketName.includes(searchQuery) ||
-    //         item.baseCurrency.includes(searchQuery) ||
-    //         item.quoteCurrency.includes(searchQuery) 
-    //         ){
-    //             all.push(item)
-    //         }
-    //     })
-    //     setAllData(all)
-    // }, [searchQuery])
-
     return (
         <View style={{backgroundColor: '#484848'}}>
             <Searchbar
@@ -84,6 +71,7 @@ const CoinsOverlay = () => {
                 }}
             />
             {allData.length > 0 ? <FlatList
+                contentContainerStyle={{ paddingBottom: 120 }}
                 data={allData}
                 renderItem={renderItem}
                 keyExtractor={(item,index) => index}
@@ -100,3 +88,4 @@ const CoinsOverlay = () => {
 }
 
 export default CoinsOverlay
+

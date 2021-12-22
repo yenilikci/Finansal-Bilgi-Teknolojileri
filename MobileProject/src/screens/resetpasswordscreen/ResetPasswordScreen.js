@@ -24,7 +24,7 @@ export default function ResetPasswordScreen({ navigation }) {
 
     firestore.sendPasswordResetEmail(email.value)
     .then((user) => {
-      alert('Please check your email...')
+      alert('Email sent, check your mailbox...')
       navigation.navigate('LoginScreen')
     }).catch(() => {
       alert('We not found your email...')

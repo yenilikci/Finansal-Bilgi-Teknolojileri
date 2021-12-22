@@ -6,5 +6,6 @@ export default StyleSheet.create({
     lineHeight: 21,
     textAlign: 'center',
     marginBottom: 12,
+    textTransform: 'capitalize'
   },
 })
